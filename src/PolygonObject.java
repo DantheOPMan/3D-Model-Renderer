@@ -7,11 +7,12 @@ public class PolygonObject {
     Polygon p;
     Color c;
 
-    public PolygonObject(int[] x, int[] y, Color color){
-
+    public PolygonObject(double[] x, double[] y, Color color){
+        Screen.polygonNum++;
         p = new Polygon();
-        p.xpoints = x;
-        p.ypoints = y;
+        for( int i = 0; i<x.length; i++){
+            p.addPoint((int) x[i], (int)y[i]);
+        }
         p.npoints = x.length;
         c = color;
         
