@@ -8,18 +8,18 @@ public class PolygonObject {
     Color c;
 
     public PolygonObject(double[] x, double[] y, Color color){
+
         Screen.polygonNum++;
         p = new Polygon();
         for( int i = 0; i<x.length; i++){
             p.addPoint((int) x[i], (int)y[i]);
         }
-        p.npoints = x.length;
         c = color;
         
     }
 
     public void drawPolygon(Graphics g){
         g.setColor(c);
-        g.drawPolygon(p);
+        g.fillPolygon(p);
     }
 }

@@ -1,6 +1,5 @@
 import java.awt.Color;
-import java.awt.Polygon;  
-import java.awt.Graphics;
+import java.awt.Polygon;
 
 public class PolygonZ {
 
@@ -8,6 +7,7 @@ public class PolygonZ {
     Color c;
 
     public PolygonZ(double[] x, double[] y, double[] z, Color c){
+
         this.x = x;
         this.y = y;
         this.z = z;
@@ -17,11 +17,13 @@ public class PolygonZ {
     }
 
     void createPolygon(){
+
         double[] newX = new double[x.length];
         double[] newY = new double[y.length];
-        for(int i=0; i<x.length; i++){
-            newX[i] = Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
-            newY[i] = Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
+
+        for(int i=0; i< x.length; i++){
+            newX[i] = 200 * Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
+            newY[i] = 200 * Calculator.calculatePositionY(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
         }
         Screen.drawablePolygon[Screen.polygonNum] = new PolygonObject(newX,newY,c);
         
