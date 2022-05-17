@@ -6,6 +6,7 @@ public class PolygonObject {
     
     Polygon p;
     Color c;
+    double averageDistance = 0;
 
     public PolygonObject(double[] x, double[] y, Color color){
 
@@ -21,5 +22,7 @@ public class PolygonObject {
     public void drawPolygon(Graphics g){
         g.setColor(c);
         g.fillPolygon(p);
+        g.setColor(Color.black);
+        g.drawPolygon(p);
     }
 }

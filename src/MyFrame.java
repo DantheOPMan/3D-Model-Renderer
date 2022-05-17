@@ -1,7 +1,9 @@
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
-public class MyFrame extends JFrame{
+
+
+public class MyFrame extends JFrame {
 
     Screen screen = new Screen();
 
@@ -17,6 +19,5 @@ public class MyFrame extends JFrame{
         
 
     }
-
 
 }
