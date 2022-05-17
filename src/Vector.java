@@ -17,7 +17,7 @@ public class Vector {
 
         Vector crossed = new Vector(
             (v.z * this.y)-(v.y * this.z),
-            -1*(v.z * this.x)-(v.x * this.z),
+            -1*((v.z * this.x)-(v.x * this.z)),
             (v.y * this.x)-(v.x * this.y)
             );
         return crossed;
