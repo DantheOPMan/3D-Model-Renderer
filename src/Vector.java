@@ -9,8 +9,6 @@ public class Vector {
             this.y = y/length;
             this.z = z/length;  
         }
-        
-
     }
 
     Vector crossProduct(Vector v){

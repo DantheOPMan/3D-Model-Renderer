@@ -13,9 +13,9 @@ public class PolygonObject {
         Screen.polygonNum++;
         p = new Polygon();
         for( int i = 0; i<x.length; i++){
-            p.addPoint((int) x[i], (int)y[i]);
+            p.addPoint((int) x[i], (int)y[i]);  
         }
-        c = color;
+        this.c = color;
         
     }
 

@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Polygon;
 
 public class PolygonZ {
 
@@ -20,27 +19,22 @@ public class PolygonZ {
 
     void createPolygon(){
         
-        double[] newX = new double[x.length];
-        double[] newY = new double[y.length];
-
-        for(int i=0; i< x.length; i++){
-            newX[i] = 500 + 50 * Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
-            newY[i] = 500 + 50 * Calculator.calculatePositionY(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
-        }
         poly = Screen.polygonNum;
-        Screen.drawablePolygon[Screen.polygonNum] = new PolygonObject(newX,newY,c);
-        Screen.drawablePolygon[poly].averageDistance = getDistance();
-        
+        Screen.drawablePolygon[Screen.polygonNum] = new PolygonObject(new double[]{},new double[]{},c); 
+        updatePolygon();
     }
 
     void updatePolygon(){
         
+        double dx = - 50 * Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, Screen.viewTo[0], Screen.viewTo[1], Screen.viewTo[2]);
+        double dy = - 50 * Calculator.calculatePositionY(Screen.viewFrom, Screen.viewTo, Screen.viewTo[0], Screen.viewTo[1], Screen.viewTo[2]);
+
         double[] newX = new double[x.length];
         double[] newY = new double[y.length];
 
         for(int i=0; i< x.length; i++){
-            newX[i] = 500 + 50 * Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
-            newY[i] = 500 + 50 * Calculator.calculatePositionY(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
+            newX[i] = dx + MyFrame.screenSize.getWidth()/2 + 50 * Calculator.calculatePositionX(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
+            newY[i] = dy + MyFrame.screenSize.getHeight()/2 + 50 * Calculator.calculatePositionY(Screen.viewFrom, Screen.viewTo, x[i], y[i], z[i]);
         }
         Screen.drawablePolygon[poly] = new PolygonObject(newX,newY,c);      
         Screen.drawablePolygon[poly].averageDistance = getDistance();
@@ -56,7 +50,7 @@ public class PolygonZ {
     }
 
     double getDistanceToP(int i){
-        return Math.sqrt(Math.pow(Screen.viewFrom[0] - x[i],2) + Math.pow(Screen.viewFrom[1] - y[i],2) + Math.pow(Screen.viewFrom[2] - z[i],2));
+        return Math.sqrt(Math.pow((Screen.viewFrom[0] - x[i]),2) + Math.pow((Screen.viewFrom[1] - y[i]),2) + Math.pow((Screen.viewFrom[2] - z[i]),2));
         
     }
 }
